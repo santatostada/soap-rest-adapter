@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://localhost:1050/users">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:addUserRequest>
+         <gs:id>1</gs:id>
+         <gs:name>Raf</gs:name>
+      </gs:addUserRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
