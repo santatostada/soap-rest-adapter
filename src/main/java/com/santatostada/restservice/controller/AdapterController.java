@@ -26,7 +26,7 @@ public class AdapterController {
     }
 
     @RequestMapping("/addUser")
-    public AddUserStatus addUser(@Valid @NotBlank @RequestParam String id, @Valid @NotBlank @RequestParam String name) {
+    public AddUserStatus addUser(@Valid @NotBlank @RequestParam(name="id") String id, @Valid @NotBlank @RequestParam(name="name") String name) {
         AddUserRequest addUserRequest = new AddUserRequest();
         addUserRequest.setId(id);
         addUserRequest.setName(name);
@@ -35,7 +35,7 @@ public class AdapterController {
     }
 
     @RequestMapping("/deleteUser")
-    public AddUserStatus deleteUser(@Valid @NotBlank @RequestParam String id) {
+    public AddUserStatus deleteUser(@Valid @NotBlank @RequestParam(name="id") String id) {
         DeleteUserRequest deleteUserRequest = new DeleteUserRequest();
         deleteUserRequest.setId(id);
         DeleteUserResponse deleteUserResponse = (DeleteUserResponse) soapConnector.callWebService("http://localhost:1050/ws", deleteUserRequest);
@@ -43,7 +43,7 @@ public class AdapterController {
     }
 
     @RequestMapping("/getUser")
-    public GetUser getUser(@Valid @NotBlank @RequestParam String id) {
+    public GetUser getUser(@Valid @NotBlank @RequestParam(name="id") String id) {
         GetUserRequest getUserRequest = new GetUserRequest();
         getUserRequest.setId(id);
         GetUserResponse getUserResponse = (GetUserResponse) soapConnector.callWebService("http://localhost:1050/ws", getUserRequest);
